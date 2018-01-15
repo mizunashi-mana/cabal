@@ -846,11 +846,11 @@ checkGhcOptions pkg =
            "'ghc-options: -with-rtsopts' has no effect for libraries. It "
         ++ "should only be used for executables."
 
-  , checkAlternatives "ghc-options" "extensions"
+  , checkAlternatives "ghc-options" "default-extensions"
       [ (flag, display extension) | flag <- all_ghc_options
                                   , Just extension <- [ghcExtension flag] ]
 
-  , checkAlternatives "ghc-options" "extensions"
+  , checkAlternatives "ghc-options" "default-extensions"
       [ (flag, extension) | flag@('-':'X':extension) <- all_ghc_options ]
 
   , checkAlternatives "ghc-options" "cpp-options" $
